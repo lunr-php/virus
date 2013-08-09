@@ -1,0 +1,135 @@
+<project name="Template" default="build" basedir=".">
+
+    <property name="system" value="src/Template" />
+    <property name="config" value="config" />
+    <property name="tests" value="tests" />
+
+    <target name="clean"
+            description="Cleanup and create build directories">
+        <delete dir="${basedir}/build" />
+
+        <mkdir dir="${basedir}/build/api" />
+        <mkdir dir="${basedir}/build/code-browser" />
+        <mkdir dir="${basedir}/build/coverage" />
+        <mkdir dir="${basedir}/build/logs" />
+        <mkdir dir="${basedir}/build/pdepend" />
+    </target>
+
+    <target name="parallelTasks"
+            description="Run the pdepend, phpmd, phpcpd, phpcs, phpdoc and phploc tasks in parallel using a maximum of 2 threads.">
+        <parallel threadCount="2">
+            <sequential>
+                <antcall target="pdepend"/>
+                <antcall target="phpmd-ci"/>
+            </sequential>
+            <antcall target="phpcpd"/>
+            <antcall target="phpcs-ci"/>
+            <antcall target="phpdoc"/>
+            <antcall target="phploc"/>
+        </parallel>
+    </target>
+
+    <target name="pdepend"
+            description="Calculate software metrics using PHP_Depend">
+        <exec executable="pdepend">
+            <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
+            <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
+            <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
+            <arg path="${system}" />
+        </exec>
+    </target>
+
+    <target name="phpmd"
+            description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
+        <exec executable="phpmd">
+            <arg path="${system}" />
+            <arg value="text" />
+            <arg value="tests/phpmd.xml" />
+            <arg value="--suffixes" />
+            <arg value="php" />
+        </exec>
+    </target>
+
+    <target name="phpmd-ci"
+            description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
+        <exec executable="phpmd">
+            <arg path="${system}" />
+            <arg value="xml" />
+            <arg value="tests/phpmd.xml" />
+            <arg value="--reportfile" />
+            <arg value="${basedir}/build/logs/pmd.xml" />
+            <arg value="--suffixes" />
+            <arg value="php" />
+        </exec>
+    </target>
+
+    <target name="phpunit"
+            description="Run unit tests with PHPUnit">
+        <exec executable="phpunit" failonerror="true">
+            <arg value="-c" />
+            <arg path="tests/phpunit.xml" />
+        </exec>
+    </target>
+
+    <target name="phpdoc"
+            description="Generate API documentation">
+        <exec executable="phpdoc">
+            <arg value="-c" />
+            <arg value="tests/phpdoc.xml" />
+            <arg value="--parseprivate" />
+        </exec>
+    </target>
+
+    <target name="phpcs"
+            description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
+        <exec executable="phpcs">
+            <arg value="--standard=Lunr" />
+            <arg value="--ignore=html.*" />
+            <arg path="${system}" />
+        </exec>
+    </target>
+
+    <target name="phpcs-ci"
+            description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
+        <exec executable="phpcs" output="/dev/null">
+            <arg value="--report=checkstyle" />
+            <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
+            <arg value="--standard=Lunr" />
+            <arg value="--ignore=html.*" />
+            <arg path="${system}" />
+        </exec>
+    </target>
+
+    <target name="phpcpd"
+            description="Find duplicate code using PHPCPD">
+        <exec executable="phpcpd">
+            <arg value="--log-pmd" />
+            <arg value="${basedir}/build/logs/pmd-cpd.xml" />
+            <arg path="${system}" />
+        </exec>
+    </target>
+
+    <target name="phploc"
+         description="Measure project size using PHPLOC">
+        <exec executable="phploc">
+            <arg value="--log-csv" />
+            <arg value="${basedir}/build/logs/phploc.csv" />
+            <arg value="--count-tests" />
+            <arg path="${system}" />
+        </exec>
+    </target>
+
+    <target name="phpcb"
+            description="Aggregate tool output with PHP_CodeBrowser">
+        <exec executable="phpcb">
+            <arg value="--log" />
+            <arg path="${basedir}/build/logs" />
+            <arg value="--source" />
+            <arg path="${system}" />
+            <arg value="--output" />
+            <arg path="${basedir}/build/code-browser" />
+        </exec>
+    </target>
+
+    <target name="build" depends="clean,parallelTasks,phpunit,phpcb" />
+</project>

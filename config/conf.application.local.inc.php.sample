@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Basic Application Configuration File
+ *
+ * This config file contains local overrides to the general application settings.
+ * To enable them rename from conf.application.local.inc.php.sample to
+ * conf.application.local.inc.php
+ *
+ * PHP Version 5.4
+ *
+ * @category   Config
+ * @package    Core
+ * @subpackage Config
+ * @author     Heinz Wiesinger <heinz@m2mobi.com>
+ * @copyright  2013, M2Mobi BV, Amsterdam, The Netherlands
+ * @license    http://lunr.nl/LICENSE MIT License
+ */
+
+## Application setup
+
+?>

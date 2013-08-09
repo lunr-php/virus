@@ -1,0 +1,10 @@
+# ReviewBoard Configuration for Template
+
+# Repository name
+REPOSITORY = "Template"
+
+# ReviewBoard Server URL
+REVIEWBOARD_URL = "http://reviews.example.org"
+
+# Review Group
+TARGET_GROUPS = "template"

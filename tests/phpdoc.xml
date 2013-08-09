@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>Template</title>
+    <parser>
+        <target>../build/api</target>
+        <markers>
+            <item>HACK</item>
+            <item>TODO</item>
+            <item>FIXME</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+        </extensions>
+        <visibility></visibility>
+    </parser>
+    <transformer>
+        <target>../build/api</target>
+    </transformer>
+    <logging>
+        <level>warn</level>
+    </logging>
+    <transformations>
+        <template name="new-black" />
+    </transformations>
+    <files>
+        <directory>../src/Template</directory>
+        <ignore>*/Tests/*</ignore>
+    </files>
+</phpdoc>

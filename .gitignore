@@ -1,0 +1,10 @@
+# Files to be ignored by git
+*.kdev4
+*.swp
+*~
+
+# ignore test results
+build
+
+# ignore local config files
+config/*.local.inc.php
