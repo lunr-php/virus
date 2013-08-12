@@ -52,7 +52,11 @@ $config = new Lunr\Core\Configuration($config);
 $locator = new Lunr\Core\ConfigServiceLocator($config);
 
 $config->load_file('application');
+$config->load_file('logging');
 $config->load_database_config();
+
+// Set up application error log
+ini_set("error_log", $config['log']['application'] . $config['error_log']);
 
 // Load enums
 require_once 'Template/Enums/Errors.php';
