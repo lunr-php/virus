@@ -27,4 +27,10 @@ $ERROR['ok'] = 200;
  */
 $ERROR['server_error'] = 500;
 
+/**
+ * Tried call not implemented/available (501)
+ * @global Integer $ERROR['not_implemented']
+ */
+$ERROR['not_implemented'] = 501;
+
 ?>

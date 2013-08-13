@@ -64,13 +64,22 @@ require_once 'Virus/Enums/Errors.php';
 // Request handling
 $front = $locator->frontcontroller();
 
+$response   = $locator->response();
+$request    = $locator->request();
 $controller = $front->get_controller('src');
-$controller = new $controller($locator);
-$controller->set_error_enums($ERROR);
 
-$front->dispatch($controller);
+if ($controller === '')
+{
+    $response->set_return_code($request->call, $ERROR['not_implemented']);
+    $response->set_error_message($request->call, 'Not implemented!');
+}
+else
+{
+    $controller = new $controller($locator);
+    $controller->set_error_enums($ERROR);
 
-$response = $locator->response();
+    $front->dispatch($controller);
+}
 
 if ($response->get_return_code() === 200)
 {
@@ -78,3 +87,4 @@ if ($response->get_return_code() === 200)
     $locator->{$view}()->print_page();
 }
 
+?>
