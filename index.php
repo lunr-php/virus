@@ -62,6 +62,8 @@ ini_set("error_log", $config['log']['application'] . $config['error_log']);
 require_once 'Virus/Enums/Errors.php';
 
 // Request handling
+ob_start();
+
 $front = $locator->frontcontroller();
 
 $response   = $locator->response();
@@ -86,5 +88,7 @@ if ($response->get_return_code() === 200)
     $view = $response->view;
     $locator->{$view}()->print_page();
 }
+
+ob_get_flush();
 
 ?>
