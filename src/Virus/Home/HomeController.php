@@ -1,31 +1,31 @@
 <?php
 
 /**
- * This file contains a welcome controller class.
+ * This file contains a home controller class.
  *
  * PHP Version 5.4
  *
  * @category   Controller
- * @package    Template
- * @subpackage Welcome
+ * @package    Virus
+ * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  * @copyright  2013, M2Mobi BV, Amsterdam, The Netherlands
  * @license    http://lunr.nl/LICENSE MIT License
  */
 
-namespace Template\Welcome;
+namespace Virus\Home;
 
 use Lunr\Corona\Controller;
 
 /**
- * Welcome controller class
+ * Home controller class
  *
  * @category   Controller
- * @package    Template
- * @subpackage Welcome
+ * @package    Virus
+ * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  */
-class WelcomeController extends Controller
+class HomeController extends Controller
 {
 
     /**
@@ -55,7 +55,7 @@ class WelcomeController extends Controller
     {
         $this->set_result('ok');
 
-        $this->response->view = 'welcomeview';
+        $this->response->view = 'homeview';
     }
 
 }

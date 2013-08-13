@@ -32,7 +32,7 @@ $config['version']          = [];
 $config['version']['major'] = '0';
 $config['version']['minor'] = '0';
 $config['version']['patch'] = '1';
-$config['version']['name']  = 'Tempest Templeton';
+$config['version']['name']  = 'Hitman';
 
 /**
  * Webservice API version
@@ -44,7 +44,7 @@ $config['api'] = 0;
  * The filename of the general error log
  * @global String $config['error_log']
  */
-$config['error_log'] = 'template.log';
+$config['error_log'] = 'virus.log';
 
 /**
  * Default method (unimplemented for webservice access)

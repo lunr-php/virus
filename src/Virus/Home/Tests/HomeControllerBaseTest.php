@@ -1,30 +1,30 @@
 <?php
 
 /**
- * This file contains the WelcomeControllerBaseTest class.
+ * This file contains the HomeControllerBaseTest class.
  *
  * PHP Version 5.4
  *
  * @category   Testing
- * @package    Template
- * @subpackage Welcome
+ * @package    Virus
+ * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  * @copyright  2013, M2Mobi BV, Amsterdam, The Netherlands
  * @license    http://lunr.nl/LICENSE MIT License
  */
 
-namespace Template\Welcome\Tests;
+namespace Virus\Home\Tests;
 
 /**
- * This class contains simple tests for the WelcomeController class.
+ * This class contains simple tests for the HomeController class.
  *
  * @category   Testing
- * @package    Template
- * @subpackage Welcome
+ * @package    Virus
+ * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
- * @covers     Template\Welcome\WelcomeController
+ * @covers     Virus\Home\HomeController
  */
-class WelcomeControllerBaseTest extends WelcomeControllerTest
+class HomeControllerBaseTest extends HomeControllerTest
 {
 
     /**
@@ -46,7 +46,7 @@ class WelcomeControllerBaseTest extends WelcomeControllerTest
     /**
      * Test that index() returns a success case.
      *
-     * @covers Template\Welcome\WelcomeController::index
+     * @covers Virus\Home\HomeController::index
      */
     public function testIndexReturnsSuccessful()
     {

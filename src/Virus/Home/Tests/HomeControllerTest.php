@@ -1,35 +1,35 @@
 <?php
 
 /**
- * This file contains the WelcomeViewTest class.
+ * This file contains the HomeControllerTest class.
  *
  * PHP Version 5.4
  *
  * @category   Testing
- * @package    Template
- * @subpackage Welcome
+ * @package    Virus
+ * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  * @copyright  2013, M2Mobi BV, Amsterdam, The Netherlands
  * @license    http://lunr.nl/LICENSE MIT License
  */
 
-namespace Template\Welcome\Tests;
+namespace Virus\Home\Tests;
 
-use Template\Welcome\WelcomeView;
+use Virus\Home\HomeController;
 use Lunr\Halo\LunrBaseTest;
 use ReflectionClass;
 
 /**
  * This class contains common setup routines, providers
- * and shared attributes for testing the WelcomeView class.
+ * and shared attributes for testing the HomeController class.
  *
  * @category   Testing
- * @package    Template
- * @subpackage Welcome
+ * @package    Virus
+ * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
- * @covers     Template\Welcome\WelcomeView
+ * @covers     Virus\Home\HomeController
  */
-abstract class WelcomeViewTest extends LunrBaseTest
+abstract class HomeControllerTest extends LunrBaseTest
 {
 
     /**
@@ -57,7 +57,6 @@ abstract class WelcomeViewTest extends LunrBaseTest
     {
         $this->response = $this->getMock('Lunr\Corona\Response');
         $this->request  = $this->getMock('Lunr\Corona\RequestInterface');
-        $config         = $this->getMock('Lunr\Core\Configuration');
 
         $this->locator = $this->getMockBuilder('Lunr\Core\ConfigServiceLocator')
                               ->disableOriginalConstructor()
@@ -66,16 +65,15 @@ abstract class WelcomeViewTest extends LunrBaseTest
         $map = [
             [ 'response', [], $this->response ],
             [ 'request', [], $this->request ],
-            [ 'config', [], $config ]
         ];
 
         $this->locator->expects($this->any())
                       ->method('__call')
                       ->will($this->returnValueMap($map));
 
-        $this->reflection = new ReflectionClass('Template\Welcome\WelcomeView');
+        $this->reflection = new ReflectionClass('Virus\Home\HomeController');
 
-        $this->class = new WelcomeView($this->locator);
+        $this->class = new HomeController($this->locator);
     }
 
     /**

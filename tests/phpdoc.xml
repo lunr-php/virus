@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
-    <title>Template</title>
+    <title>Virus</title>
     <parser>
         <target>../build/api</target>
         <markers>
@@ -23,7 +23,7 @@
         <template name="new-black" />
     </transformations>
     <files>
-        <directory>../src/Template</directory>
+        <directory>../src/Virus</directory>
         <ignore>*/Tests/*</ignore>
     </files>
 </phpdoc>

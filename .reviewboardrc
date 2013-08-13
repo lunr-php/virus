@@ -1,10 +1,10 @@
-# ReviewBoard Configuration for Template
+# ReviewBoard Configuration for Virus
 
 # Repository name
-REPOSITORY = "Template"
+REPOSITORY = "Virus"
 
 # ReviewBoard Server URL
-REVIEWBOARD_URL = "http://reviews.example.org"
+REVIEWBOARD_URL = "http://reviews.lunr.nl"
 
 # Review Group
-TARGET_GROUPS = "template"
+TARGET_GROUPS = "virus"

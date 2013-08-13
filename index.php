@@ -59,7 +59,7 @@ $config->load_database_config();
 ini_set("error_log", $config['log']['application'] . $config['error_log']);
 
 // Load enums
-require_once 'Template/Enums/Errors.php';
+require_once 'Virus/Enums/Errors.php';
 
 // Request handling
 $front = $locator->frontcontroller();

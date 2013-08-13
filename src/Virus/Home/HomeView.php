@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file contains the welcome view class.
+ * This file contains the home view class.
  *
  * PHP Version 5.4
  *
  * @category   Library
- * @package    Template
- * @subpackage Welcome
+ * @package    Virus
+ * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  * @copyright  2013, M2Mobi BV, Amsterdam, The Netherlands
  * @license    http://lunr.nl/LICENSE MIT License
  */
 
-namespace Template\Welcome;
+namespace Virus\Home;
 
 use Lunr\Corona\View;
 
@@ -21,11 +21,11 @@ use Lunr\Corona\View;
  * View class for displaying 'Hello World'.
  *
  * @category   Library
- * @package    Template
- * @subpackage Welcome
+ * @package    Virus
+ * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  */
-class WelcomeView extends View
+class HomeView extends View
 {
 
     /**
@@ -53,7 +53,7 @@ class WelcomeView extends View
      */
     public function print_page()
     {
-        echo '<html><head><title>Welcome</title></head><body><h1>Hello World!</h1></body></html>';
+        echo '<html><head><title>Home</title></head><body><h1>Hello World!</h1></body></html>';
     }
 
 }

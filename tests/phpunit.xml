@@ -12,23 +12,23 @@
         <ini name="zend.enable_gc" value="0" />
     </php>
     <testsuites>
-        <testsuite name="Template">
-            <file>src/Template/Welcome/Tests/WelcomeControllerBaseTest.php</file>
-            <file>src/Template/Welcome/Tests/WelcomeViewBaseTest.php</file>
+        <testsuite name="Virus">
+            <file>src/Virus/Home/Tests/HomeControllerBaseTest.php</file>
+            <file>src/Virus/Home/Tests/HomeViewBaseTest.php</file>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory>../src/Template/</directory>
+            <directory>../src/Virus/</directory>
             <exclude>
-                <directory>../src/Template/Welcome/Tests/</directory>
+                <directory>../src/Virus/Home/Tests/</directory>
             </exclude>
         </whitelist>
     </filter>
     <logging>
         <log    type="coverage-html"
                 target="../build/coverage"
-                title="Template"
+                title="Virus"
                 charset="UTF-8"
                 yui="true"
                 highlight="true"

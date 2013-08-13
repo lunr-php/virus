@@ -24,10 +24,10 @@
 $config['log'] = array();
 
 /**
- * General log file path for Template
+ * General log file path for Virus
  * @global String $config['log']['application']
  */
-$config['log']['application'] = '/var/log/webapps/template.example.org/';
+$config['log']['application'] = '/var/log/webapps/infest.lunr.nl/';
 
 /**
  * Load local configuration value adjustments, if they exist

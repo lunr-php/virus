@@ -1,6 +1,6 @@
-<project name="Template" default="build" basedir=".">
+<project name="Virus" default="build" basedir=".">
 
-    <property name="system" value="src/Template" />
+    <property name="system" value="src/Virus" />
     <property name="config" value="config" />
     <property name="tests" value="tests" />
 

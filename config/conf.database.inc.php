@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Database Access Configuration File
+ * Virus Database Access Configuration File
  * This config file contains the database access configuration, like:
  *
  * <ul>
