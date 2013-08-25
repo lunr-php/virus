@@ -35,6 +35,8 @@ $config['path'] = array();
  */
 $config['path']['lunr'] = '/var/www/apps/Lunr-' . $config['lunr']['version'] . '/src/';
 
+$config['path']['statics'] = 'statics/';
+
 /**
  * Default protocol for web queries
  * @global String $config['default_protocol']

@@ -15,7 +15,7 @@
 
 namespace Virus\Home;
 
-use Lunr\Corona\View;
+use Virus\Core\CoreView;
 
 /**
  * View class for displaying 'Hello World'.
@@ -25,7 +25,7 @@ use Lunr\Corona\View;
  * @subpackage Home
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  */
-class HomeView extends View
+class HomeView extends CoreView
 {
 
     /**
@@ -35,7 +35,9 @@ class HomeView extends View
      */
     public function __construct($locator)
     {
-        parent::__construct($locator->request(), $locator->response(), $locator->config());
+        parent::__construct($locator);
+
+        $this->stylesheets[] = $this->statics('stylesheets/home.css');
     }
 
     /**
@@ -53,7 +55,12 @@ class HomeView extends View
      */
     public function print_page()
     {
-        echo '<html><head><title>Home</title></head><body><h1>Hello World!</h1></body></html>';
+        $this->print_header();
+        $this->print_top();
+
+        include __DIR__ . '/Html/grid.php';
+
+        $this->print_bottom();
     }
 
 }

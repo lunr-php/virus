@@ -1,35 +1,35 @@
 <?php
 
 /**
- * This file contains the HomeViewTest class.
+ * This file contains the CoreViewTest class.
  *
  * PHP Version 5.4
  *
  * @category   Testing
  * @package    Virus
- * @subpackage Home
+ * @subpackage Core
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  * @copyright  2013, M2Mobi BV, Amsterdam, The Netherlands
  * @license    http://lunr.nl/LICENSE MIT License
  */
 
-namespace Virus\Home\Tests;
+namespace Virus\Core\Tests;
 
-use Virus\Home\HomeView;
+use Virus\Core\CoreView;
 use Lunr\Halo\LunrBaseTest;
 use ReflectionClass;
 
 /**
  * This class contains common setup routines, providers
- * and shared attributes for testing the HomeView class.
+ * and shared attributes for testing the CoreView class.
  *
  * @category   Testing
  * @package    Virus
- * @subpackage Home
+ * @subpackage Core
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
- * @covers     Virus\Home\HomeView
+ * @covers     Virus\Core\CoreView
  */
-abstract class HomeViewTest extends LunrBaseTest
+abstract class CoreViewTest extends LunrBaseTest
 {
 
     /**
@@ -73,9 +73,11 @@ abstract class HomeViewTest extends LunrBaseTest
                       ->method('__call')
                       ->will($this->returnValueMap($map));
 
-        $this->reflection = new ReflectionClass('Virus\Home\HomeView');
+        $this->reflection = new ReflectionClass('Virus\Core\CoreView');
 
-        $this->class = new HomeView($this->locator);
+        $this->class = $this->getMockBuilder('Virus\Core\CoreView')
+                            ->setConstructorArgs([$this->locator])
+                            ->getMockForAbstractClass();
     }
 
     /**

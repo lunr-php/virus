@@ -28,13 +28,27 @@ class HomeViewBaseTest extends HomeViewTest
 {
 
     /**
-     * Test print_page() prints hello world.
+     * Test that the stylesheets list contains all required elements.
+     */
+    public function testStylesheetsListIsCorrect()
+    {
+        $list = $this->get_reflection_property_value('stylesheets');
+
+        $this->assertCount(4, $list);
+        $this->assertContains('http://yui.yahooapis.com/3.11.0/build/cssreset/cssreset-min.css', $list);
+        $this->assertContains('http://yui.yahooapis.com/3.11.0/build/cssfonts/cssfonts-min.css', $list);
+        $this->assertContains('/stylesheets/main.css', $list);
+        $this->assertContains('/stylesheets/home.css', $list);
+    }
+
+    /**
+     * Test print_page() prints an html page.
      *
      * @covers Virus\Home\HomeView::print_page
      */
     public function testPrintPage()
     {
-        $this->expectOutputString('<html><head><title>Home</title></head><body><h1>Hello World!</h1></body></html>');
+        $this->expectOutputregex("/<!DOCTYPE html>\n<html>(.|\n)+<\/html>/");
 
         $this->class->print_page();
     }

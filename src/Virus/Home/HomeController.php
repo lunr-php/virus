@@ -55,6 +55,7 @@ class HomeController extends Controller
     {
         $this->set_result('ok');
 
+        $this->response->add_response_data('title', 'Ground Zero');
         $this->response->view = 'homeview';
     }
 

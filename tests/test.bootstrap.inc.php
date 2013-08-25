@@ -33,4 +33,6 @@ require_once 'Lunr/Core/Autoloader.php';
 $autoloader = new Lunr\Core\Autoloader();
 $autoloader->register();
 
+define('TEST_STATICS', __DIR__ . '/statics');
+
 ?>

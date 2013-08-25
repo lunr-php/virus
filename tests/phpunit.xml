@@ -12,7 +12,10 @@
         <ini name="zend.enable_gc" value="0" />
     </php>
     <testsuites>
-        <testsuite name="Virus">
+        <testsuite name="Core">
+            <file>src/Virus/Core/Tests/CoreViewBaseTest.php</file>
+        </testsuite>
+        <testsuite name="Home">
             <file>src/Virus/Home/Tests/HomeControllerBaseTest.php</file>
             <file>src/Virus/Home/Tests/HomeViewBaseTest.php</file>
         </testsuite>
@@ -21,6 +24,7 @@
         <whitelist>
             <directory>../src/Virus/</directory>
             <exclude>
+                <directory>../src/Virus/Core/Tests/</directory>
                 <directory>../src/Virus/Home/Tests/</directory>
             </exclude>
         </whitelist>
