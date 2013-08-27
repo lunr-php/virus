@@ -1,0 +1,78 @@
+html, body {
+   height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.methods {
+    width: 250px;
+    background-color: #101010;
+    position: relative;
+    top: 215px;
+    height: calc(100% - 215px);
+    border-style: solid;
+    border-width: 0px;
+    border-right-width: 4px;
+    border-color: #1B1B1B;
+    z-index: 2;
+}
+
+.logo {
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.method {
+    font-size: 1.5em;
+    width: calc(100% - 20px);
+    height: 1.5em;
+    padding-left: 20px;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+.logo, .method {
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-color: #1B1B1B;
+}
+
+.method:hover {
+    background-color: #1B1B1B;
+    cursor: pointer;
+}
+
+.params {
+    width: 242px;
+    background-color: #1B1B1B;
+    position: absolute;
+    top: 215px;
+    height: calc(100% - 215px);
+    border-style: solid;
+    border-width: 0px;
+    border-right-width: 4px;
+    border-color: #1B1B1B;
+    z-index: 1;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.params input {
+    width: calc(100% - 4px);
+    margin-top: 20px;
+}
+
+.output {
+    position: absolute;
+    top: 215px;
+    left: 616px;
+    width: calc(100% - 616px);
+    height: calc(100% - 215px);
+    text-align: center;
+    font-size: 10em;
+}

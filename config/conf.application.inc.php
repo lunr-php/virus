@@ -53,6 +53,12 @@ $config['error_log'] = 'virus.log';
 $config['default_method'] = 'index';
 
 /**
+ * Default controller
+ * @global String $config['default_controller']
+ */
+$config['default_controller'] = 'home';
+
+/**
  * Load local configuration value adjustments, if they exist
  */
 $local_app_conf = dirname(__FILE__) . '/conf.application.local.inc.php';

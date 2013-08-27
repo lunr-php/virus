@@ -1,31 +1,29 @@
 <?php
 
 /**
- * This file contains the home view class.
+ * This file contains the API console view class.
  *
  * PHP Version 5.4
  *
  * @category   Library
  * @package    Virus
- * @subpackage Home
+ * @subpackage Core
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  * @copyright  2013, M2Mobi BV, Amsterdam, The Netherlands
  * @license    http://lunr.nl/LICENSE MIT License
  */
 
-namespace Virus\Home;
-
-use Virus\Core\CoreView;
+namespace Virus\Core;
 
 /**
- * View class for displaying the main page.
+ * View class for displaying the API console.
  *
  * @category   Library
  * @package    Virus
- * @subpackage Home
+ * @subpackage Core
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  */
-class HomeView extends CoreView
+class ApiConsoleView extends CoreView
 {
 
     /**
@@ -37,7 +35,7 @@ class HomeView extends CoreView
     {
         parent::__construct($locator);
 
-        $this->stylesheets[] = $this->statics('stylesheets/home.css');
+        $this->stylesheets[] = $this->statics('stylesheets/apiconsole.css');
     }
 
     /**
@@ -58,7 +56,7 @@ class HomeView extends CoreView
         $this->print_header();
         $this->print_top();
 
-        include __DIR__ . '/Html/grid.php';
+        include __DIR__ . '/Html/apiconsole.php';
 
         $this->print_bottom();
     }

@@ -12,3 +12,7 @@ $(function(){
         layout: 'fluid',
     });
 });
+
+$('#facebook').on('click', function(){
+    window.location = 'facebook';
+});
