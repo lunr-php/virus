@@ -24,7 +24,10 @@
         <whitelist>
             <directory>../src/Virus/</directory>
             <exclude>
+                <directory>../src/Virus/Enums/</directory>
+                <directory>../src/Virus/Core/Html/</directory>
                 <directory>../src/Virus/Core/Tests/</directory>
+                <directory>../src/Virus/Home/Html/</directory>
                 <directory>../src/Virus/Home/Tests/</directory>
             </exclude>
         </whitelist>
