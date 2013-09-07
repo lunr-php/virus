@@ -1,15 +1,8 @@
 <div class="methods">
 <div class="logo"><img src="<?= $this->statics('images/platforms/' . $this->response->get_response_data('platform') . '_small.png'); ?>"></div>
-<div class="method">Method</div>
-<div class="method">Method</div>
-<div class="method">Method</div>
-<div class="method">Method</div>
-<div class="method">Method</div>
-<div class="method">Method</div>
-<div class="method">Method</div>
-<div class="method">Method</div>
-<div class="method">Method</div>
-<div class="method">Method</div>
+<?php foreach ($this->response->get_response_data('methods') as $method): ?>
+<div class="method"><?= $method ?></div>
+<?php endforeach; ?>
 </div>
 
 <div class="params">

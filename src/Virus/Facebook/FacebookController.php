@@ -15,7 +15,7 @@
 
 namespace Virus\Facebook;
 
-use Lunr\Corona\Controller;
+use Virus\Core\ApiController;
 
 /**
  * Facebook controller class
@@ -25,7 +25,7 @@ use Lunr\Corona\Controller;
  * @subpackage Facebook
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  */
-class FacebookController extends Controller
+class FacebookController extends ApiController
 {
 
     /**
@@ -35,7 +35,7 @@ class FacebookController extends Controller
      */
     public function __construct($locator)
     {
-        parent::__construct($locator->request(), $locator->response());
+        parent::__construct($locator);
     }
 
     /**
@@ -57,6 +57,7 @@ class FacebookController extends Controller
 
         $this->response->add_response_data('title', 'Facebook');
         $this->response->add_response_data('platform', 'facebook');
+        $this->response->add_response_data('methods', $this->get_api_methods());
         $this->response->view = 'apiconsoleview';
     }
 
