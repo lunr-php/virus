@@ -30,6 +30,12 @@ abstract class ApiController extends Controller
 {
 
     /**
+     * Shared instance of the Service Locator.
+     * @var \Lunr\Core\ConfigServiceLocator
+     */
+    protected $locator;
+
+    /**
      * Constructor.
      *
      * @param \Lunr\Core\ConfigServiceLocator $locator Shared instance of the Service Locator
@@ -37,6 +43,8 @@ abstract class ApiController extends Controller
     public function __construct($locator)
     {
         parent::__construct($locator->request(), $locator->response());
+
+        $this->locator = $locator;
     }
 
     /**
@@ -44,6 +52,8 @@ abstract class ApiController extends Controller
      */
     public function __destruct()
     {
+        unset($this->locator);
+
         parent::__destruct();
     }
 

@@ -74,5 +74,6 @@ body {
     width: calc(100% - 616px);
     height: calc(100% - 215px);
     text-align: center;
-    font-size: 10em;
+    font-size: 3em;
+    word-wrap: break-word;
 }

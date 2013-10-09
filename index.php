@@ -38,7 +38,7 @@ require_once 'conf.lunr.inc.php';
 // Add system config paths to lookup path
 set_include_path(
     get_include_path() . ':' .
-    $base . "/src" . ':' .
+    $base . '/src' . ':' .
     $config['path']['lunr']
 );
 

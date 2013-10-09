@@ -22,6 +22,12 @@ $ERROR = [];
 $ERROR['ok'] = 200;
 
 /**
+ * Input missing or in unexpected format (400)
+ * @global Integer $ERROR['invalid_input']
+ */
+$ERROR['invalid_input'] = 400;
+
+/**
  * Internal Server Error (500)
  * @global Integer $ERROR['server_error']
  */
