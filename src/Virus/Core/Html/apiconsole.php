@@ -8,7 +8,7 @@
 <div class="params">
 <form action="<?= $this->base_url() . $this->response->get_response_data('platform') . '/'; ?>" id="api_request">
 <?php foreach ($this->response->get_response_data('parameters') as $key => $param): ?>
-<input type="text" name="<?= $key ?>" value="<?= $param['title'] ?>" class="<?= implode(' ', $param['methods']); ?>">
+<input type="text" name="<?= $key ?>" placeholder="<?= $param['title'] ?>" value="" class="<?= implode(' ', $param['methods']); ?>">
 <?php endforeach ?>
 <input type="hidden" id="method" value="">
 <input type="submit" value="Make Request">
