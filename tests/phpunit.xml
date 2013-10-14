@@ -29,6 +29,7 @@
                 <directory>../src/Virus/Core/Tests/</directory>
                 <directory>../src/Virus/Home/Html/</directory>
                 <directory>../src/Virus/Home/Tests/</directory>
+                <directory>../src/Virus/Facebook/Tests/</directory>
             </exclude>
         </whitelist>
     </filter>

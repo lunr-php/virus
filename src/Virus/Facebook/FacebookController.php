@@ -69,8 +69,8 @@ class FacebookController extends ApiController
         $params['userid']['title']       = 'User ID';
         $params['fields']['title']       = 'Fields';
 
-        $params['app_id']['methods']       = [ 'get_login_url', 'get_logout_url', 'get_access_token', 'get_user_profile' ];
-        $params['app_secret']['methods']   = [ 'get_login_url', 'get_logout_url', 'get_access_token', 'get_user_profile' ];
+        $params['app_id']['methods']       = [ 'get_login_url', 'get_logout_url', 'get_access_token', 'get_app_access_token', 'get_user_profile' ];
+        $params['app_secret']['methods']   = [ 'get_login_url', 'get_logout_url', 'get_access_token', 'get_app_access_token', 'get_user_profile' ];
         $params['redirect_url']['methods'] = [ 'get_login_url', 'get_logout_url', 'get_access_token' ];
         $params['scope']['methods']        = [ 'get_login_url' ];
         $params['token']['methods']        = [ 'get_user_profile' ];

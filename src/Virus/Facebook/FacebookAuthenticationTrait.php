@@ -27,6 +27,41 @@ trait FacebookAuthenticationTrait
 {
 
     /**
+     * Shared instance of the Request class.
+     * @var \Lunr\Corona\RequestInterface
+     */
+    protected $request;
+
+    /**
+     * Shared instance of the Response class.
+     * @var \Lunr\Corona\Response
+     */
+    protected $response;
+
+    /**
+     * Shared instance of the Service Locator.
+     * @var \Lunr\Core\ConfigServiceLocator
+     */
+    protected $locator;
+
+    /**
+     * Set of error enums.
+     * @var array
+     */
+    protected $error;
+
+    /**
+     * Store result of the call in the response object.
+     *
+     * @param String $code_index Index of the return code in the ERROR enum
+     * @param String $message    Error Message
+     * @param mixed  $info       Additional error information
+     *
+     * @return void
+     */
+    abstract protected function set_result($code_index, $message = NULL, $info = NULL);
+
+    /**
      * Get the login URL for facebook.
      *
      * @return void
@@ -173,6 +208,39 @@ trait FacebookAuthenticationTrait
 
         $this->response->add_response_data('token', $facebook->get_temporary_access_token());
         $this->response->add_response_data('expires', $facebook->get_token_expires());
+
+        $this->set_result('ok');
+        $this->response->view = 'jsonview';
+    }
+
+    /**
+     * Get the access token used for facebook API requests.
+     *
+     * @return void
+     */
+    public function get_app_access_token()
+    {
+        $app_id       = $this->request->get_post_data('app_id');
+        $app_secret   = $this->request->get_post_data('app_secret');
+
+        if ($app_id == '')
+        {
+            $this->set_result('invalid_input', 'Missing app_id', 'app_id');
+            return;
+        }
+
+        if ($app_secret == '')
+        {
+            $this->set_result('invalid_input', 'Missing app_secret', 'app_secret');
+            return;
+        }
+
+        $facebook = $this->locator->facebookauth();
+
+        $facebook->app_id     = $app_id;
+        $facebook->app_secret = $app_secret;
+
+        $this->response->add_response_data('token', $facebook->get_app_access_token());
 
         $this->set_result('ok');
         $this->response->view = 'jsonview';
