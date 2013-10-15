@@ -58,9 +58,6 @@ $config->load_database_config();
 // Set up application error log
 ini_set("error_log", $config['log']['application'] . $config['error_log']);
 
-// Load enums
-require_once 'Virus/Enums/Errors.php';
-
 // Request handling
 ob_start();
 
@@ -72,13 +69,12 @@ $controller = $front->get_controller('src');
 
 if ($controller === '')
 {
-    $response->set_return_code($request->call, $ERROR['not_implemented']);
+    $response->set_return_code($request->call, Lunr\Corona\HttpCode::NOT_IMPLEMENTED);
     $response->set_error_message($request->call, 'Not implemented!');
 }
 else
 {
     $controller = new $controller($locator);
-    $controller->set_error_enums($ERROR);
 
     $front->dispatch($controller);
 }

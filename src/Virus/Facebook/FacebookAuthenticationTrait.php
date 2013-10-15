@@ -15,6 +15,8 @@
 
 namespace Virus\Facebook;
 
+use Lunr\Corona\HttpCode;
+
 /**
  * Facebook trait for authentication methods.
  *
@@ -53,13 +55,13 @@ trait FacebookAuthenticationTrait
     /**
      * Store result of the call in the response object.
      *
-     * @param String $code_index Index of the return code in the ERROR enum
-     * @param String $message    Error Message
-     * @param mixed  $info       Additional error information
+     * @param Integer $code    Return Code
+     * @param String  $message Error Message
+     * @param mixed   $info    Additional error information
      *
      * @return void
      */
-    abstract protected function set_result($code_index, $message = NULL, $info = NULL);
+    abstract protected function set_result($code, $message = NULL, $info = NULL);
 
     /**
      * Get the login URL for facebook.
@@ -75,13 +77,13 @@ trait FacebookAuthenticationTrait
 
         if ($app_id == '')
         {
-            $this->set_result('invalid_input', 'Missing app_id', 'app_id');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_id', 'app_id');
             return;
         }
 
         if ($app_secret == '')
         {
-            $this->set_result('invalid_input', 'Missing app_secret', 'app_secret');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_secret', 'app_secret');
             return;
         }
 
@@ -103,7 +105,7 @@ trait FacebookAuthenticationTrait
 
         $this->response->add_response_data('url', $facebook->get_login_url());
 
-        $this->set_result('ok');
+        $this->set_result(HttpCode::OK);
         $this->response->view = 'jsonview';
     }
 
@@ -120,13 +122,13 @@ trait FacebookAuthenticationTrait
 
         if ($app_id == '')
         {
-            $this->set_result('invalid_input', 'Missing app_id', 'app_id');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_id', 'app_id');
             return;
         }
 
         if ($app_secret == '')
         {
-            $this->set_result('invalid_input', 'Missing app_secret', 'app_secret');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_secret', 'app_secret');
             return;
         }
 
@@ -142,7 +144,7 @@ trait FacebookAuthenticationTrait
 
         $this->response->add_response_data('url', $facebook->get_logout_url());
 
-        $this->set_result('ok');
+        $this->set_result(HttpCode::OK);
         $this->response->view = 'jsonview';
     }
 
@@ -179,19 +181,19 @@ trait FacebookAuthenticationTrait
 
         if ($app_id == '')
         {
-            $this->set_result('invalid_input', 'Missing app_id', 'app_id');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_id', 'app_id');
             return;
         }
 
         if ($app_secret == '')
         {
-            $this->set_result('invalid_input', 'Missing app_secret', 'app_secret');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_secret', 'app_secret');
             return;
         }
 
         if ($code == '')
         {
-            $this->set_result('invalid_input', 'Missing OAuth token', 'code');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing OAuth token', 'code');
             return;
         }
 
@@ -209,7 +211,7 @@ trait FacebookAuthenticationTrait
         $this->response->add_response_data('token', $facebook->get_temporary_access_token());
         $this->response->add_response_data('expires', $facebook->get_token_expires());
 
-        $this->set_result('ok');
+        $this->set_result(HttpCode::OK);
         $this->response->view = 'jsonview';
     }
 
@@ -225,13 +227,13 @@ trait FacebookAuthenticationTrait
 
         if ($app_id == '')
         {
-            $this->set_result('invalid_input', 'Missing app_id', 'app_id');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_id', 'app_id');
             return;
         }
 
         if ($app_secret == '')
         {
-            $this->set_result('invalid_input', 'Missing app_secret', 'app_secret');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_secret', 'app_secret');
             return;
         }
 
@@ -242,7 +244,7 @@ trait FacebookAuthenticationTrait
 
         $this->response->add_response_data('token', $facebook->get_app_access_token());
 
-        $this->set_result('ok');
+        $this->set_result(HttpCode::OK);
         $this->response->view = 'jsonview';
     }
 

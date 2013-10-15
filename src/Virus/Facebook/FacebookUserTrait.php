@@ -15,6 +15,8 @@
 
 namespace Virus\Facebook;
 
+use Lunr\Corona\HttpCode;
+
 /**
  * Facebook trait for user methods.
  *
@@ -41,19 +43,19 @@ trait FacebookUserTrait
 
         if ($app_id == '')
         {
-            $this->set_result('invalid_input', 'Missing app_id', 'app_id');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_id', 'app_id');
             return;
         }
 
         if ($app_secret == '')
         {
-            $this->set_result('invalid_input', 'Missing app_secret', 'app_secret');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_secret', 'app_secret');
             return;
         }
 
         if ($token == '')
         {
-            $this->set_result('invalid_input', 'Missing access token', 'token');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing access token', 'token');
             return;
         }
 
@@ -120,7 +122,7 @@ trait FacebookUserTrait
 
         error_reporting($old);
 
-        $this->set_result('ok');
+        $this->set_result(HttpCode::OK);
         $this->response->view = 'jsonview';
     }
 

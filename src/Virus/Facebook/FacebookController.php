@@ -15,6 +15,7 @@
 
 namespace Virus\Facebook;
 
+use Lunr\Corona\HttpCode;
 use Virus\Core\ApiController;
 
 /**
@@ -56,7 +57,7 @@ class FacebookController extends ApiController
      */
     public function index()
     {
-        $this->set_result('ok');
+        $this->set_result(HttpCode::OK);
 
         $params = [];
 

@@ -16,6 +16,7 @@
 namespace Virus\Home;
 
 use Lunr\Corona\Controller;
+use Lunr\Corona\HttpCode;
 
 /**
  * Home controller class
@@ -53,7 +54,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->set_result('ok');
+        $this->set_result(HttpCode::OK);
 
         $this->response->add_response_data('title', 'Ground Zero');
         $this->response->view = 'homeview';

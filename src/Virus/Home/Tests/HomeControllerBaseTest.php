@@ -15,6 +15,8 @@
 
 namespace Virus\Home\Tests;
 
+use Lunr\Corona\HttpCode;
+
 /**
  * This class contains simple tests for the HomeController class.
  *
@@ -50,8 +52,6 @@ class HomeControllerBaseTest extends HomeControllerTest
      */
     public function testIndexReturnsSuccessful()
     {
-        $this->set_reflection_property_value('error', [ 'ok' => 200 ]);
-
         $map = [[ 'call', 'controller/method' ]];
 
         $this->request->expects($this->exactly(1))
@@ -60,7 +60,7 @@ class HomeControllerBaseTest extends HomeControllerTest
 
         $this->response->expects($this->once())
                        ->method('set_return_code')
-                       ->with('controller/method', $this->equalTo(200));
+                       ->with('controller/method', $this->equalTo(HttpCode::OK));
 
         $this->class->index();
     }
