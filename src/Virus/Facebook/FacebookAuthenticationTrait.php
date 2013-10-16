@@ -29,30 +29,6 @@ trait FacebookAuthenticationTrait
 {
 
     /**
-     * Shared instance of the Request class.
-     * @var \Lunr\Corona\RequestInterface
-     */
-    protected $request;
-
-    /**
-     * Shared instance of the Response class.
-     * @var \Lunr\Corona\Response
-     */
-    protected $response;
-
-    /**
-     * Shared instance of the Service Locator.
-     * @var \Lunr\Core\ConfigServiceLocator
-     */
-    protected $locator;
-
-    /**
-     * Set of error enums.
-     * @var array
-     */
-    protected $error;
-
-    /**
      * Store result of the call in the response object.
      *
      * @param Integer $code    Return Code
