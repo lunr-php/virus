@@ -72,11 +72,11 @@ class FacebookController extends ApiController
         $params['pageid']['title']       = 'Page ID';
         $params['fields']['title']       = 'Fields';
 
-        $params['app_id']['methods']       = [ 'get_login_url', 'get_logout_url', 'get_access_token', 'get_app_access_token', 'get_page', 'get_user_profile' ];
-        $params['app_secret']['methods']   = [ 'get_login_url', 'get_logout_url', 'get_access_token', 'get_app_access_token', 'get_page', 'get_user_profile' ];
+        $params['app_id']['methods']       = [ 'get_login_url', 'get_access_token', 'get_app_access_token', 'get_page', 'get_user_profile' ];
+        $params['app_secret']['methods']   = [ 'get_login_url', 'get_access_token', 'get_app_access_token', 'get_page', 'get_user_profile' ];
         $params['redirect_url']['methods'] = [ 'get_login_url', 'get_logout_url', 'get_access_token' ];
         $params['scope']['methods']        = [ 'get_login_url' ];
-        $params['token']['methods']        = [ 'get_page', 'get_user_profile' ];
+        $params['token']['methods']        = [ 'get_logout_url', 'get_page', 'get_user_profile' ];
         $params['code']['methods']         = [ 'get_access_token' ];
         $params['userid']['methods']       = [ 'get_user_profile' ];
         $params['pageid']['methods']       = [ 'get_page' ];

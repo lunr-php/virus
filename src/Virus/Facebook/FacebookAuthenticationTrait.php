@@ -47,7 +47,6 @@ trait FacebookAuthenticationTrait
     public function get_login_url()
     {
         $app_id       = $this->request->get_post_data('app_id');
-        $app_secret   = $this->request->get_post_data('app_secret');
         $redirect_url = $this->request->get_post_data('redirect_url');
         $scope        = $this->request->get_post_data('scope');
 
@@ -57,16 +56,9 @@ trait FacebookAuthenticationTrait
             return;
         }
 
-        if ($app_secret == '')
-        {
-            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_secret', 'app_secret');
-            return;
-        }
-
         $facebook = $this->locator->facebookauth();
 
         $facebook->app_id     = $app_id;
-        $facebook->app_secret = $app_secret;
 
         if ($redirect_url != '')
         {
@@ -92,26 +84,18 @@ trait FacebookAuthenticationTrait
      */
     public function get_logout_url()
     {
-        $app_id       = $this->request->get_post_data('app_id');
-        $app_secret   = $this->request->get_post_data('app_secret');
+        $access_token = $this->request->get_post_data('access_token');
         $redirect_url = $this->request->get_post_data('redirect_url');
 
-        if ($app_id == '')
+        if ($access_token == '')
         {
-            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_id', 'app_id');
-            return;
-        }
-
-        if ($app_secret == '')
-        {
-            $this->set_result(HttpCode::BAD_REQUEST, 'Missing app_secret', 'app_secret');
+            $this->set_result(HttpCode::BAD_REQUEST, 'Missing access_token', 'access_token');
             return;
         }
 
         $facebook = $this->locator->facebookauth();
 
-        $facebook->app_id     = $app_id;
-        $facebook->app_secret = $app_secret;
+        $facebook->access_token = $access_token;
 
         if ($redirect_url != '')
         {
