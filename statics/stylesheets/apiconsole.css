@@ -74,6 +74,20 @@ body {
     width: calc(100% - 616px);
     height: calc(100% - 215px);
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
+}
+
+.json_display_table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.json {
     word-wrap: break-word;
+}
+
+.json_key {
+    text-align:right;
+    padding-right: 10px;
+    color: gray;
 }

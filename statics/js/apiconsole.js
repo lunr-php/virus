@@ -24,12 +24,15 @@ $("#api_request").submit(function(){
         var json = $.parseJSON(data);
         var items = [];
 
-        $.each(json, function(key, value)
-        {
-            items.push(key + ': ' + value + '<br />');
+        $.each(json, function(key, value) {
+            var row = $('<tr></tr>');
+            var td1 = $('<td></td>').attr({ class: ["json", "json_key"].join(' ') }).text(key + ':').appendTo(row);
+            var td2 = $('<td></td>').attr('class', 'json').attr({ 'id': 'json_display_' + key, 'class': 'json' }).text(value).appendTo(row);
+
+            items.push(row.prop('outerHTML'));
         });
 
-        $(".output").html(items.join(''));
+        $("#json_display").html(items.join(''));
     });
 
 });

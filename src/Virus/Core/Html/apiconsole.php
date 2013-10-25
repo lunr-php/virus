@@ -16,16 +16,27 @@
 </div>
 
 <div class="output">
+<table class="json_display_table">
+<colgroup>
+  <col width="20%">
+  <col width="80%">
+</colgroup>
+<tbody id="json_display">
 <?php
- $output = $this->response->get_response_data('output');
- if ($output !== NULL)
- {
-    foreach ($output as $key => $value)
-    {
-        echo $key . ': ' . $value . '<br />';
-    }
- }
+    $output = $this->response->get_response_data('output');
+    $output = ($output !== NULL) ? $output : [];
+
+    foreach ($output as $key => $value):
 ?>
+        <tr>
+            <td class='json json_key'><?= $key ?>:</td>
+            <td class='json' id='json_display_<?= $key ?>'><?= $value ?></td>
+        </tr>
+<?php
+    endforeach;
+?>
+<tbody>
+</table>
 </div>
 
 <script src="<?= $this->statics('js/jquery.min.js'); ?>"></script>
