@@ -198,8 +198,8 @@ trait FacebookAuthenticationTrait
      */
     public function get_app_access_token()
     {
-        $app_id       = $this->request->get_post_data('app_id');
-        $app_secret   = $this->request->get_post_data('app_secret');
+        $app_id     = $this->request->get_post_data('app_id');
+        $app_secret = $this->request->get_post_data('app_secret');
 
         if ($app_id == '')
         {
