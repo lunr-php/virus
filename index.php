@@ -61,10 +61,20 @@ ini_set("error_log", $config['log']['application'] . $config['error_log']);
 // Request handling
 ob_start();
 
+if (PHP_SAPI === 'cli')
+{
+    $request = $locator->clirequest();
+}
+else
+{
+    $request = $locator->webrequest();
+}
+
+$locator->override('request', $request);
+
 $front = $locator->frontcontroller();
 
 $response   = $locator->response();
-$request    = $locator->request();
 $controller = $front->get_controller('src');
 
 if ($controller === '')
