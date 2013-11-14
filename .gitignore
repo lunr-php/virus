@@ -8,3 +8,6 @@ build
 
 # ignore local config files
 config/*.local.inc.php
+
+# ignore api keys file for behavior tests
+apikeys.js

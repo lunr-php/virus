@@ -131,5 +131,17 @@
         </exec>
     </target>
 
+    <target name="casperjs"
+            description="Behavior tests using casperjs/phantomjs">
+        <exec executable="casperjs">
+            <arg value="test" />
+            <arg path="tests/scripts" />
+            <arg value="--pre=tests/scripts/apikeys.js" />
+            <arg value="--xunit=build/logs/casperjs.log" />
+        </exec>
+    </target>
+
+    <target name="test" depends="clean,casperjs" />
+
     <target name="build" depends="clean,parallelTasks,phpunit,phpcb" />
 </project>
