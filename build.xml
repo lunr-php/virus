@@ -137,7 +137,7 @@
             <arg value="test" />
             <arg path="tests/scripts" />
             <arg value="--pre=tests/scripts/apikeys.js" />
-            <arg value="--xunit=build/logs/casperjs.log" />
+            <arg value="--xunit=build/logs/casperjs.xml" />
         </exec>
     </target>
 
