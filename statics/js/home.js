@@ -16,3 +16,7 @@ $(function(){
 $('#facebook').on('click', function(){
     window.location = 'facebook';
 });
+
+$('#twitter').on('click', function(){
+    window.location = 'twitter';
+});
