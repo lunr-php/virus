@@ -18,10 +18,6 @@ casper.test.begin("Lunr Spark Facebook - Get profile of authenticated user witho
 
     casper.then(function(){
         test.assertEvalEquals(function(){
-            return __utils__.findOne('#json_display_result').innerText;
-        }, '200', "get_user_profile request successful");
-
-        test.assertEvalEquals(function(){
             return __utils__.findOne('#json_display_id').innerText;
         }, '100006580243910', "Fetched ID is correct");
 

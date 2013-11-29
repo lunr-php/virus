@@ -14,10 +14,6 @@ casper.test.begin("Lunr Spark Facebook - Successful login without requesting spe
     });
 
     casper.then(function(){
-        test.assertEvalEquals(function(){
-            return __utils__.findOne('#json_display_result').innerText;
-        }, '200', "get_login_url request successful");
-
         url = this.evaluate(function(){
             return __utils__.findOne('#json_display_url').innerText;
         });
@@ -89,10 +85,6 @@ casper.test.begin("Lunr Spark Facebook - Successful login without requesting spe
     });
 
     casper.then(function(){
-        test.assertEvalEquals(function(){
-            return __utils__.findOne('#json_display_result').innerText;
-        }, '200', "get_access_token request successful");
-
         token = this.evaluate(function(){
             return __utils__.findOne('#json_display_token').innerText;
         });
