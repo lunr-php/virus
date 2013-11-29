@@ -4,9 +4,9 @@ $recipe = [];
 
 $recipe['jsonview'] = [];
 
-$recipe['jsonview']['name'] = 'Virus\Core\JsonView';
+$recipe['jsonview']['name'] = 'Lunr\Corona\JsonView';
 
-$recipe['jsonview']['params'] = [ 'locator' ];
+$recipe['jsonview']['params'] = [ 'request', 'response', 'config' ];
 
 $recipe['jsonview']['singleton'] = TRUE;
 

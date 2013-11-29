@@ -21,10 +21,9 @@ $("#api_request").submit(function(){
     });
 
     $.post(url, post_data, function(data){
-        var json = $.parseJSON(data);
         var items = [];
 
-        $.each(json, function(key, value) {
+        $.each(data.data, function(key, value) {
             var row = $('<tr></tr>');
             var td1 = $('<td></td>').attr({ class: ["json", "json_key"].join(' ') }).text(key + ':').appendTo(row);
             var td2 = $('<td></td>').attr('class', 'json').attr({ 'id': 'json_display_' + key, 'class': 'json' }).text(value).appendTo(row);
