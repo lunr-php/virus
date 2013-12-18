@@ -15,7 +15,7 @@
 
 namespace Virus\Core;
 
-use Lunr\Corona\View;
+use Lunr\Corona\HTMLView;
 
 /**
  * View class for displaying 'Hello World'.
@@ -25,14 +25,8 @@ use Lunr\Corona\View;
  * @subpackage View
  * @author     Heinz Wiesinger <heinz@m2mobi.com>
  */
-abstract class CoreView extends View
+abstract class CoreView extends HTMLView
 {
-
-    /**
-     * List of stylesheets to include.
-     * @var array;
-     */
-    protected $stylesheets;
 
     /**
      * Constructor.
@@ -54,6 +48,28 @@ abstract class CoreView extends View
     public function __destruct()
     {
         parent::__destruct();
+    }
+
+    /**
+     * Build display for Fatal Error output.
+     *
+     * @return void
+     */
+    public function print_fatal_error()
+    {
+        $error = error_get_last();
+
+        if (($error === NULL) || ($error['type'] !== E_ERROR))
+        {
+            return;
+        }
+
+        $this->print_header();
+        $this->print_top();
+
+        include __DIR__ . '/Html/fatal_error.php';
+
+        $this->print_bottom();
     }
 
     /**
@@ -84,23 +100,6 @@ abstract class CoreView extends View
     protected function print_bottom()
     {
         include __DIR__ . '/Html/bottom.php';
-    }
-
-    /**
-     * Generate css include statements.
-     *
-     * @return String $links Generated html code for including css stylesheets
-     */
-    protected function include_stylesheets()
-    {
-        $links = '';
-
-        foreach($this->stylesheets as $stylesheet)
-        {
-            $links .= '<link rel="stylesheet" type="text/css" href="' . $stylesheet . '">' . "\n";
-        }
-
-        return $links;
     }
 
 }

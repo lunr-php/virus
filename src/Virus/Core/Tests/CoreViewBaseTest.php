@@ -40,48 +40,6 @@ class CoreViewBaseTest extends CoreViewTest
         $this->assertContains('/stylesheets/main.css', $list);
     }
 
-    /**
-     * Test generating stylesheet include links for no stylesheets.
-     *
-     * @covers Virus\Core\CoreView::include_stylesheets
-     */
-    public function testIncluceStylesheetsWithNoStylesheets()
-    {
-        $this->set_reflection_property_value('stylesheets', []);
-
-        $method = $this->get_accessible_reflection_method('include_stylesheets');
-
-        $this->assertSame('', $method->invoke($this->class));
-    }
-
-    /**
-     * Test generating stylesheet include links for one stylesheet.
-     *
-     * @covers Virus\Core\CoreView::include_stylesheets
-     */
-    public function testIncludeStylesheetsWithOneStylesheet()
-    {
-        $this->set_reflection_property_value('stylesheets', [ 'style1.css' ]);
-
-        $method = $this->get_accessible_reflection_method('include_stylesheets');
-
-        $this->assertStringEqualsFile(TEST_STATICS . '/Core/stylesheet_1.html', $method->invoke($this->class));
-    }
-
-    /**
-     * Test generating stylesheet include links for multiple stylesheets.
-     *
-     * @covers Virus\Core\CoreView::include_stylesheets
-     */
-    public function testIncludeStylesheetsWithMultipleStylesheets()
-    {
-        $this->set_reflection_property_value('stylesheets', [ 'style1.css', 'style2.css' ]);
-
-        $method = $this->get_accessible_reflection_method('include_stylesheets');
-
-        $this->assertStringEqualsFile(TEST_STATICS . '/Core/stylesheet_2.html', $method->invoke($this->class));
-    }
-
 }
 
 ?>
