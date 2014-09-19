@@ -21,7 +21,7 @@
  * Version of the Lunr Framework to use
  * @global $config['lunr']['version']
  */
-$config['lunr']['version'] = '0.2';
+$config['lunr']['version'] = '0.2beta2';
 
 /**
  * Array of path definitions
